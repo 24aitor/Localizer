@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Aitor24\Localizer\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class LocalizerController extends Controller
