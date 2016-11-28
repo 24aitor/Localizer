@@ -2,6 +2,8 @@
 
 namespace Aitor24\Localizer\Controllers;
 
+use Auth;
+use URL;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 

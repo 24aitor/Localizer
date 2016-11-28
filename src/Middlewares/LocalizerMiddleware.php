@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace Aitor24\Localizer\Middlewares;
 
-use Closure;
+use App;
 use Auth;
+use Closure;
 
 class LocalizerMiddleware
 {
@@ -29,7 +30,7 @@ class LocalizerMiddleware
                 	App::setLocale(session('locale'));
                 }
         }
-        
+
         return $next($request);
     }
 }

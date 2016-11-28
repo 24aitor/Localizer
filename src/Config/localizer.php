@@ -8,6 +8,7 @@ return [
     */
     'default'   => [
         'routes'         => true,
-        'prefix'         => 'locale',
+        'prefix'         => 'localizer',
+        'middleware'     => Aitor24\Localizer\Middlewares\LocalizerMiddleware::class,
     ],
 ];
