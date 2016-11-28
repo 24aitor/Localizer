@@ -1,7 +1,5 @@
 # Localizer
 
-![](http://i.imgur.com/11Tvcoh.png)
-
 ## Getting Started
 
 ### Step 1. Install it with composer
