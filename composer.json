@@ -1,6 +1,6 @@
 {
     "name": "aitor24/localizer",
-    "description": "This package let you change easyli default locale in laravel 5.X",
+    "description": "Pakcage to change easily default locale in laravel 5.X",
     "require": {
         "php": ">=5.6.4",
         "laravel/framework": "5.*",
