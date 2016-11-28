@@ -1,5 +1,5 @@
-@extends('laralang::template')
-@section('title', 'Translations - Laralang')
+@extends('localizer::template')
+@section('title', 'Localizer')
 @section('content')
 <center>
 <br><br>
