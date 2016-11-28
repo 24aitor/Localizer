@@ -1,0 +1,24 @@
+{
+    "name": "aitor24/localizer",
+    "description": "This package let you change easyli default locale in laravel 5.X",
+    "require": {
+        "php": ">=5.6.4",
+        "laravel/framework": "5.*",
+        "24aitor/laralang": "3.*"
+    },
+    "type": "translations",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aitor Riba",
+            "email": "1aitorribaarchilla@gmail.com",
+			"homepage": "https://www.aitorriba.ml/",
+			"role": "author"
+        }
+    ],
+	"autoload": {
+		"psr-4": {
+			"Aitor24\\Localizer\\": "./src"
+		}
+	}
+}
