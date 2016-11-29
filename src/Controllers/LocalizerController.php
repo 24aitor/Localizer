@@ -9,15 +9,31 @@ use Illuminate\Http\Request;
 
 class LocalizerController extends Controller
 {
-    public function set($locale, Request $request)
+    private function setLocale($locale, $request)
     {
-    	if (Auth::check()){
+        if (Auth::check()){
             $user = Auth::User();
             $user->locale = $locale;
             $user->save();
-    	} else {
+        } else {
             $request->session()->put('locale', $locale);
-    	}
-        return redirect(URL::previous());
+        }
+    }
+
+    public function set($locale, Request $request)
+    {
+        $this->setLocale($locale, $request);
+        return redirect('/');
+    }
+
+    public function setHere($locale, Request $request)
+    {
+        $this->setLocale($locale, $request);
+        return redirect()->back();
+    }
+
+    public function view()
+    {
+        return view('localizer::localizer');
     }
 }
