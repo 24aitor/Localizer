@@ -2,16 +2,15 @@
 
 namespace Aitor24\Localizer\Controllers;
 
-use Auth;
-use URL;
 use App\Http\Controllers\Controller;
+use Auth;
 use Illuminate\Http\Request;
 
 class LocalizerController extends Controller
 {
     private function setLocale($locale, $request)
     {
-        if (Auth::check()){
+        if (Auth::check()) {
             $user = Auth::User();
             $user->locale = $locale;
             $user->save();
@@ -23,12 +22,14 @@ class LocalizerController extends Controller
     public function set($locale, Request $request)
     {
         $this->setLocale($locale, $request);
+
         return redirect('/');
     }
 
     public function setHere($locale, Request $request)
     {
         $this->setLocale($locale, $request);
+
         return redirect()->back();
     }
 

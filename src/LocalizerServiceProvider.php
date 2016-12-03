@@ -2,8 +2,8 @@
 
 namespace Aitor24\Localizer;
 
-use Illuminate\Support\ServiceProvider;
 use Aitor24\Laralang\LaralangServiceProvider;
+use Illuminate\Support\ServiceProvider;
 
 class LocalizerServiceProvider extends ServiceProvider
 {
