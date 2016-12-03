@@ -1,5 +1,9 @@
 # Localizer
 
+[![StyleCI](https://styleci.io/repos/74991261/shield?branch=master)](https://styleci.io/repos/74991261)
+
+[![GitHub license](https://img.shields.io/github/license/24aitor/localizer.svg?style=flat-square)](https://raw.githubusercontent.com/24aitor/localizer/master/LICENSE)
+
 ## Getting Started
 
 ### Step 1. Install it with composer
