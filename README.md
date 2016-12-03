@@ -10,21 +10,12 @@ Running the command below:
 composer require aitor24/localizer
 ```
 
-### Step 2. Register service provider & aliases
+### Step 2. Register service provider
 
 Include the line below to config/app.php inside array `'providers' => [` :
 
 ```
 Aitor24\Localizer\LocalizerServiceProvider::class,
-```
-
-
-Include the line below to config/app.php inside array `'aliases' => [` :
-
-*This is required for use Laralang*
-
-```
-'Laralang'   => Aitor24\Laralang\Facades\Laralang::class,
 ```
 
 

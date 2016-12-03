@@ -11,9 +11,12 @@
 			<h2>Select your language</h2>
 		</div>
 		<br><br>
-		<br><br>
-		<br><br>
-		<br><br>
+		<div class="hidden-md-down">
+			<br><br>
+			<br><br>
+			<br><br>
+		</div>
+
 		<div class="container">
 
 			<div class="row">
