@@ -45,3 +45,23 @@ php artisan migrate
 ### Step 5. Configure defalt values
 
 Default values can be modified also on `config/localizer.php`.
+
+## Using Localizer
+
+### Middleware
+
+Routes you want to auto set language should be under the below Route group
+
+```
+Route::group(['middleware' => 'localizer.middleware'], function () {
+
+    // Here your routes
+
+});
+```
+
+### Changing languages
+
+- Acces to localhost/project_path/public/localizer and change your language with an interface
+
+- Via URL: localhost/project_path/public/localizer/set/{locale}
