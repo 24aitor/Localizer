@@ -5,7 +5,7 @@ namespace Aitor24\Localizer\Middlewares;
 use App;
 use Auth;
 use Closure;
-use Unicodeveloper\Identify\Facades\IdentifyFacade as Identify;
+use Unicodeveloper\Identify\Facades\IdentityFacade as Identify;
 
 class LocalizerMiddleware
 {
@@ -28,6 +28,8 @@ class LocalizerMiddleware
             } else {
                 if (config('localizer.default.set_auto_lang')) {
                     App::setLocale(Identify::lang()->getLanguage());
+                } else {
+                    App::setLocale(config('localizer.default.default_lang'));
                 }
             }
         } else {
@@ -36,6 +38,8 @@ class LocalizerMiddleware
             } else {
                 if (config('localizer.default.set_auto_lang')) {
                     App::setLocale(Identify::lang()->getLanguage());
+                } else {
+                    App::setLocale(config('localizer.default.default_lang'));
                 }
             }
         }
