@@ -2,8 +2,9 @@
 
 namespace Aitor24\Localizer;
 
-use Aitor24\Laralang\LaralangServiceProvider;
 use Illuminate\Support\ServiceProvider;
+use Aitor24\Laralang\LaralangServiceProvider;
+use Unicodeveloper\Identify\IdentifyServiceProvider;
 
 class LocalizerServiceProvider extends ServiceProvider
 {
@@ -25,7 +26,7 @@ class LocalizerServiceProvider extends ServiceProvider
 
         $router->middleware('localizer.middleware', config('localizer.default.middleware'));
         $this->app->register(LaralangServiceProvider::class);
-
+        $this->app->register(IdentifyServiceProvider::class);
         $this->publishes([
             __DIR__.'/Views' => resource_path('views/vendor/Aitor24/Localizer'),
         ], 'localizer_pkg');
