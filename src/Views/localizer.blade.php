@@ -20,7 +20,7 @@
 		<div class="container">
 
 			<div class="row">
-			@foreach(Laralang::allLanguages() as $key => $value)
+			@foreach(Aitor24\Laralang\Facades\Laralang::allLanguages() as $key => $value)
 				@php
 					$flag = $value;
 					$array = ['en' => 'gb','zh' => 'cn', 'ja' => 'jp', 'ca' => 'img'];
