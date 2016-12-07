@@ -21,6 +21,11 @@ Include the line below to config/app.php inside array `'providers' => [` :
 Aitor24\Localizer\LocalizerServiceProvider::class,
 ```
 
+Remind to add alias for use Laralang
+
+```
+'Laralang'   => Aitor24\Laralang\Facades\Laralang::class,
+```
 
 ### Step 3. Publish vendor
 
