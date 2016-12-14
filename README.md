@@ -109,4 +109,6 @@ Returns the current language name.
 
 ### Menu
 
+This is a preview of menu, but you can modify it on _resources/view/vendor/Aitor24/Localizer_
+
 ![Menu](http://i.imgur.com/taDghpt.png)
