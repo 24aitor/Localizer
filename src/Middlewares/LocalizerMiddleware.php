@@ -2,21 +2,19 @@
 
 namespace Aitor24\Localizer\Middlewares;
 
+use Aitor24\Localizer\Facades\LocalizerFacade as Localizer;
 use App;
 use Auth;
 use Closure;
 use Unicodeveloper\Identify\Facades\IdentityFacade as Identify;
-use Aitor24\Localizer\Facades\LocalizerFacade as Localizer;
 
 class LocalizerMiddleware
 {
     /**
-      * This function checks if language to set is an allowed lang of config
-      *
-      * @param string $lang
-      *
-      **/
-
+     * This function checks if language to set is an allowed lang of config.
+     *
+     * @param string $lang
+     **/
     private function setIfAllowed($lang)
     {
         $allowedLangs = array_keys(Localizer::allowedLanguages());
