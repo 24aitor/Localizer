@@ -24,7 +24,7 @@ class LocalizerServiceProvider extends ServiceProvider
             __DIR__.'/Assets'               => public_path('vendor/Aitor24/Localizer'),
         ], 'localizer_pkg');
 
-        $router->middleware('localizer.middleware', config('localizer.default.middleware'));
+        $router->middleware('localizer', config('localizer.middleware'));
         $this->app->register(LaralangServiceProvider::class);
         $this->app->register(IdentifyServiceProvider::class);
         $this->publishes([

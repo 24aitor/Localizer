@@ -6,9 +6,27 @@ use App;
 use Auth;
 use Closure;
 use Unicodeveloper\Identify\Facades\IdentityFacade as Identify;
+use Aitor24\Localizer\Facades\LocalizerFacade as Localizer;
 
 class LocalizerMiddleware
 {
+    /**
+      * This function checks if language to set is an allowed lang of config
+      *
+      * @param string $lang
+      *
+      **/
+
+    private function setIfAllowed($lang)
+    {
+        $allowedLangs = array_keys(Localizer::allowedLanguages());
+        if (in_array($lang, $allowedLangs)) {
+            App::setLocale($lang);
+        } else {
+            App::setLocale('en');
+        }
+    }
+
     /**
      * Handle an incoming request.
      *
@@ -24,22 +42,22 @@ class LocalizerMiddleware
 
             // Set user locale
             if ($user->locale) {
-                App::setLocale($user->locale);
+                $this->setIfAllowed($user->locale);
             } else {
-                if (config('localizer.default.set_auto_lang')) {
-                    App::setLocale(Identify::lang()->getLanguage());
+                if (config('localizer.set_auto_lang')) {
+                    $this->setIfAllowed(Identify::lang()->getLanguage());
                 } else {
-                    App::setLocale(config('localizer.default.default_lang'));
+                    $this->setIfAllowed(config('localizer.default_lang'));
                 }
             }
         } else {
             if ($request->session()->has('locale')) {
-                App::setLocale(session('locale'));
+                $this->setIfAllowed(session('locale'));
             } else {
-                if (config('localizer.default.set_auto_lang')) {
-                    App::setLocale(Identify::lang()->getLanguage());
+                if (config('localizer.set_auto_lang')) {
+                    $this->setIfAllowed(Identify::lang()->getLanguage());
                 } else {
-                    App::setLocale(config('localizer.default.default_lang'));
+                    $this->setIfAllowed(config('localizer.default_lang'));
                 }
             }
         }

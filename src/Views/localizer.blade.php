@@ -1,4 +1,5 @@
 @extends('localizer::template')
+
 @section('title', 'Localizer')
 @section('content')
 <center>
@@ -9,7 +10,9 @@
 			<h1>Localizer</h1>
 			<br>
 			<h2>Select your language</h2>
+			<br>
 		</div>
+
 		<br><br>
 		<div class="hidden-md-down">
 			<br><br>
@@ -20,25 +23,15 @@
 		<div class="container">
 
 			<div class="row">
-			@foreach(Aitor24\Laralang\Facades\Laralang::allLanguages() as $key => $value)
-				@php
-					$flag = $value;
-					$array = ['en' => 'gb','zh' => 'cn', 'ja' => 'jp', 'ca' => 'img'];
-					if (array_key_exists($value, $array)) {
-						$flag = $array[$value];
-					}
-				 @endphp
+
+			@foreach(Aitor24\Localizer\Facades\LocalizerFacade::allowedLanguages() as $code => $value)
+
 				 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-2 col-xl" style="padding-bottom:70px">
-					 <a href="{{ route('localizer::setLocale',['locale' => $value ]) }}" class="but">
-						 @if($flag == 'img')
-						 <img src="{{asset('vendor/aitor24/Localizer/Flags/'.$value.'.jpg')}}" style="height:15px;">
-						 @else
-						 <span class="{{'flag-icon flag-icon-'.$flag}}" ></span>
-						 @endif
+					 <a href="{{ Aitor24\Localizer\Facades\LocalizerFacade::setRoute($code) }}" class="but">
 
+						 {!! Aitor24\Localizer\Facades\LocalizerFacade::getHtmlFlag($code, '15px') !!}
 
-					 &nbsp;
-					{{$key}}
+						 &nbsp; {{$value}}
 				</a>
 			</div>
 			@endforeach
@@ -50,5 +43,13 @@
 </center>
 @endsection
 @section('footer')
+<div class="row">
+	<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-xs-10 offset-xs-1" style="border-radius:50px; -webkit-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75); -moz-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75); box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);">
+		<strong>Selected:</strong> &nbsp;
+		{!! Aitor24\Localizer\Facades\LocalizerFacade::getCurrentHtmlFlag('es', '15px') !!}
+		{!! Aitor24\Localizer\Facades\LocalizerFacade::getCurrentLanguage() !!}
+	</div>
+</div>
+<br><br>
 <a href="https://github.com/24aitor/Localizer" style="color:black">Localizer on GitHub</a>
 @endsection

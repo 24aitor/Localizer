@@ -38,14 +38,14 @@
                 margin: auto;
                 text-decoration: none;
                 cursor: pointer;
-                border: 1px solid #0000FF;
+                border: 1px solid #3F51B5;
                 border-radius: 8px;
                 height: 2.8em;
                 width: 10em;
                 padding: 0;
                 outline: none;
                 overflow: hidden;
-                color: #0000FF;
+                color: #3F51B5;
                 -webkit-transition: color 0.3s 0.1s ease-out;
                 transition: color 0.3s 0.1s ease-out;
                 text-align: center;
@@ -75,12 +75,12 @@
                 text-decoration: none;
                 }
                 .but:hover::before {
-                box-shadow: inset 0 0 0 10em #0000FF;
+                box-shadow: inset 0 0 0 10em #3F51B5;
                 }
         </style>
 
     </head>
-    <body style="background-color:#b2b2b2;">
+    <body style="background-color:#F5F5F5;">
 
         @yield('content')
         <br><br>

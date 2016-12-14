@@ -5,11 +5,21 @@ namespace Aitor24\Localizer\Controllers;
 use App\Http\Controllers\Controller;
 use Auth;
 use Illuminate\Http\Request;
+use Aitor24\Localizer\Facades\LocalizerFacade as Localizer;
 
 class LocalizerController extends Controller
 {
+
+    private function checkLocale($locale)
+    {
+        if (!in_array($locale, array_keys(Localizer::allowedLanguages()))) {
+            abort(404, "Lang '".$locale."' not found");
+        }
+    }
+
     private function setLocale($locale, $request)
     {
+        $this->checkLocale($locale);
         if (Auth::check()) {
             $user = Auth::User();
             $user->locale = $locale;
