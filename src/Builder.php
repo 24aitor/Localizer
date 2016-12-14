@@ -24,7 +24,11 @@ class Builder
 
     /**
      *
+     * Returns add names for arrays with only codes an return an array as [$code => $language]
      *
+     * @param array $langs
+     *
+     * @return array
      *
      */
     public static function addNames($langs)
@@ -50,20 +54,15 @@ class Builder
         return $array;
     }
 
-    public static function recognisedLanguage($lang)
-    {
-        $json = file_get_contents(__DIR__.'/languages.json');
-
-        //Decode JSON
-        $json_data = json_decode($json,true);
-        foreach ($json_data as $lang_data) {
-            if ($lang_data['code'] == $lang) {
-                return true;
-            }
-        }
-        return false;
-    }
-
+    /**
+     *
+     * Returns an string url to an asset
+     *
+     * @param string $asset
+     *
+     * @return string
+     *
+     */
     public static function check_asset($asset)
     {
         if (config('localizer.https')) {
@@ -72,15 +71,15 @@ class Builder
         return asset($asset);
     }
 
-    public static function check_url($url)
-    {
-        if (config('localizer.https')) {
-            return secure_asset($asset);
-        }
-        return asset($asset);
-    }
-
-    // Return html code to instert flag
+    /**
+     *
+     * Returns an html code to insert a flag into website. Must be called with {!! !!} statements
+     *
+     * @param string $code
+     * @param string $size
+     * @return string
+     *
+     */
     public static function getHtmlFlag($code, $size = '15px')
     {
         $flag = $code;
@@ -94,16 +93,40 @@ class Builder
         return '<span class="flag-icon flag-icon-'.$flag.'" style="font-size:'.$size.';" ></span>';
     }
 
+    /**
+     *
+     * Returns an string url to set up language
+     *
+     * @param string $code
+     * @return string
+     *
+     */
     public static function setRoute($code)
     {
         return route('localizer::setLocale',['locale' => $code ]);
     }
 
-    public static function getCurrentHtmlFlag()
+    /**
+     *
+     * Returns an html code to insert the current language flag into website. Must be called with {!! !!} statements
+     *
+     * @param string $size
+     * @return string
+     *
+     */
+    public static function getCurrentHtmlFlag($size = '15px')
     {
-        return Localizer::getHtmlFlag(App::getLocale());
+        return Localizer::getHtmlFlag(App::getLocale(), $size);
     }
 
+    /**
+     *
+     * Returns  the current language code
+     *
+     * @param string $ucfirst
+     * @return string
+     *
+     */
     public static function getCurrentCode($ucfirst = false)
     {
         if ($ucfirst) {
@@ -112,6 +135,15 @@ class Builder
         return App::getLocale();
     }
 
+
+    /**
+     *
+     * Returns  the current language name
+     *
+     * @param string $ucfirst
+     * @return string
+     *
+     */
     public static function getCurrentLanguage()
     {
         return Localizer::addNames([Localizer::getCurrentCode()])[Localizer::getCurrentCode()];

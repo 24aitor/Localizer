@@ -21,10 +21,11 @@ Include the line below to config/app.php inside array `'providers' => [` :
 Aitor24\Localizer\LocalizerServiceProvider::class,
 ```
 
-Remind to add alias for use Laralang
+Remind to add alias for use Laralang and Localizer functions
 
 ```
 'Laralang'   => Aitor24\Laralang\Facades\Laralang::class,
+'Localizer'   => Aitor24\Localizer\Facades\LocalizerFacade::class,
 ```
 
 ### Step 3. Publish vendor
@@ -70,3 +71,32 @@ Route::group(['middleware' => 'localizer.middleware'], function () {
 - Acces to localhost/project_path/public/localizer and change your language with an interface
 
 - Via URL: localhost/project_path/public/localizer/set/{locale}
+
+### Functions
+
+#### Localizer::allowedLanguages()
+
+Returns an array with [$code => $language] for all allowed languages of config.
+
+
+User for arrays with only codes and return an array as [$code => $language]
+
+
+Returns an string url to an asset
+
+
+Returns an html code to insert a flag into website. Must be called with {!! !!} statements
+
+
+Returns an string url to set up language
+
+
+Returns an html code to insert the current language flag into website. Must be called with {!! !!} statements
+
+
+Returns the current language code.
+
+
+Returns the current language name.
+
+
