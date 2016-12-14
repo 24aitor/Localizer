@@ -107,4 +107,6 @@ Returns the current language code.
 Returns the current language name.
 
 
-#### Menu
+### Menu
+
+![Menu](http://i.imgur.com/taDghpt.png)
