@@ -78,25 +78,33 @@ Route::group(['middleware' => 'localizer.middleware'], function () {
 
 Returns an array with [$code => $language] for all allowed languages of config.
 
+#### Localizer::addNames()
 
 User for arrays with only codes and return an array as [$code => $language]
 
+#### Localizer::check_asset($asset)
 
 Returns an string url to an asset
 
+#### Localizer::getHtmlFlag($code)
 
 Returns an html code to insert a flag into website. Must be called with {!! !!} statements
 
+#### Localizer::setRoute()
 
 Returns an string url to set up language
 
+#### Localizer::getCurrentHtmlFlag()
 
 Returns an html code to insert the current language flag into website. Must be called with {!! !!} statements
 
+#### Localizer getCurrentCode()
 
 Returns the current language code.
 
+#### Localizer::getCurrentLanguage()
 
 Returns the current language name.
 
 
+#### Menu
