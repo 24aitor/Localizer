@@ -17,13 +17,13 @@ composer require aitor24/localizer
 
 Include the line below to config/app.php inside array `'providers' => [` :
 
-```
+```php
 Aitor24\Localizer\LocalizerServiceProvider::class,
 ```
 
 Remind to add alias for use Laralang and Localizer functions
 
-```
+```php
 'Laralang'   => Aitor24\Laralang\Facades\Laralang::class,
 'Localizer'   => Aitor24\Localizer\Facades\LocalizerFacade::class,
 ```
@@ -58,7 +58,7 @@ Default values can be modified also on `config/localizer.php`.
 
 Routes you want to auto set language should be under the below Route group
 
-```
+```php
 Route::group(['middleware' => 'localizer.middleware'], function () {
 
     // Here your routes
@@ -109,6 +109,6 @@ Returns the current language name.
 
 ### Menu
 
-This is a preview of menu, but you can modify it on _resources/view/vendor/Aitor24/Localizer_
+This is a preview of menu, but you can modify it on ``resources/view/vendor/Aitor24/Localizer``
 
 ![Menu](http://i.imgur.com/taDghpt.png)
