@@ -33,7 +33,7 @@ class LocalizerController extends Controller
     {
         $this->setLocale($locale, $request);
 
-        return redirect(LK::url('/'));
+        return redirect(Linker::url('/'));
     }
 
     public function setHere($locale, Request $request)
