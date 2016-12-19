@@ -69,7 +69,7 @@ class Builder
             $flag = $array[$code];
         }
         if ($flag == 'img') {
-            return '<img src='.Linker::asset('vendor/aitor24/Localizer/Flags/'.$code.'.jpg')." style='height:".$size.";' />";
+            return '<img src='.Linker::asset('vendor/Aitor24/Localizer/Flags/'.$code.'.jpg')." style='height:".$size.";' />";
         }
 
         return '<span class="flag-icon flag-icon-'.$flag.'" style="font-size:'.$size.';" ></span>';

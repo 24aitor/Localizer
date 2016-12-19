@@ -45,9 +45,9 @@
 @section('footer')
 <div class="container">
 <div class="row">
-	<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-xs-10 offset-xs-1" style="border-radius:50px; -webkit-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75); -moz-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75); box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);">
+	<div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-xs-10 offset-xs-1" style="background-color:#FFF; border-radius:5px; -webkit-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75); -moz-box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75); box-shadow: 0px 0px 16px 0px rgba(0,0,0,0.75);">
 		<strong>Selected:</strong> &nbsp;
-		{!! Aitor24\Localizer\Facades\LocalizerFacade::getCurrentHtmlFlag('es', '15px') !!}
+		{!! Aitor24\Localizer\Facades\LocalizerFacade::getCurrentHtmlFlag('15px') !!}
 		{!! Aitor24\Localizer\Facades\LocalizerFacade::getCurrentLanguage() !!}
 	</div>
 </div>
