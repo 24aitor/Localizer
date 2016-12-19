@@ -3,7 +3,7 @@
 namespace Aitor24\Localizer;
 
 use Aitor24\Laralang\Facades\Laralang as Laralang;
-use Aitor24\Localizer\Facades\LocalizerFacade as Localizer;
+use Aitor24\Linker\Facades\Linker as Linker;
 use App;
 
 class Builder
@@ -18,7 +18,7 @@ class Builder
         if (!config('localizer.allowed_langs')) {
             return Laralang::allLanguages();
         } else {
-            return Localizer::addNames(config('localizer.allowed_langs'));
+            return self::addNames(config('localizer.allowed_langs'));
         }
     }
 
@@ -54,22 +54,6 @@ class Builder
     }
 
     /**
-     * Returns an string url to an asset.
-     *
-     * @param string $asset
-     *
-     * @return string
-     */
-    public static function check_asset($asset)
-    {
-        if (config('localizer.https')) {
-            return secure_asset($asset);
-        }
-
-        return asset($asset);
-    }
-
-    /**
      * Returns an html code to insert a flag into website. Must be called with {!! !!} statements.
      *
      * @param string $code
@@ -85,7 +69,7 @@ class Builder
             $flag = $array[$code];
         }
         if ($flag == 'img') {
-            return '<img src='.Localizer::check_asset('vendor/aitor24/Localizer/Flags/'.$code.'.jpg')." style='height:".$size.";' />";
+            return '<img src='.Linker::asset('vendor/aitor24/Localizer/Flags/'.$code.'.jpg')." style='height:".$size.";' />";
         }
 
         return '<span class="flag-icon flag-icon-'.$flag.'" style="font-size:'.$size.';" ></span>';
@@ -100,7 +84,7 @@ class Builder
      */
     public static function setRoute($code)
     {
-        return route('localizer::setLocale', ['locale' => $code]);
+        return Linker::route('localizer::setLocale', ['locale' => $code]);
     }
 
     /**
@@ -112,7 +96,7 @@ class Builder
      */
     public static function getCurrentHtmlFlag($size = '15px')
     {
-        return Localizer::getHtmlFlag(App::getLocale(), $size);
+        return self::getHtmlFlag(App::getLocale(), $size);
     }
 
     /**
@@ -140,6 +124,6 @@ class Builder
      */
     public static function getCurrentLanguage()
     {
-        return Localizer::addNames([Localizer::getCurrentCode()])[Localizer::getCurrentCode()];
+        return self::addNames([self::getCurrentCode()])[self::getCurrentCode()];
     }
 }

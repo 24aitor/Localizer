@@ -7,7 +7,6 @@ return [
     |--------------------------------------------------------------------------
     */
     'routes'             => true,
-    'https'              => false, // Set true if your web is under https
     'select_lang_routes' => true, // If routes is false has no effect
     'set_auto_lang'      => true,
     'default_lang'       => 'en', // If set_auto_lang is true has no effect

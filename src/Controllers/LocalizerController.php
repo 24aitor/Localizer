@@ -3,6 +3,7 @@
 namespace Aitor24\Localizer\Controllers;
 
 use Aitor24\Localizer\Facades\LocalizerFacade as Localizer;
+use Aitor24\Linker\Facades\Linker as Linker;
 use App\Http\Controllers\Controller;
 use Auth;
 use Illuminate\Http\Request;
@@ -32,7 +33,7 @@ class LocalizerController extends Controller
     {
         $this->setLocale($locale, $request);
 
-        return redirect('/');
+        return redirect(LK::url('/'));
     }
 
     public function setHere($locale, Request $request)

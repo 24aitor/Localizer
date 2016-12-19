@@ -3,6 +3,8 @@
     <head>
 
         <meta charset="utf-8">
+        <meta name="viewport" content="width=320, initial-scale=1.0, maximum-scale=1.0">
+
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
 
         <!-- CDN of icons -->
