@@ -59,7 +59,7 @@ Default values can be modified also on `config/localizer.php`.
 Routes you want to auto set language should be under the below Route group
 
 ```php
-Route::group(['middleware' => 'localizer.middleware'], function () {
+Route::group(['middleware' => 'localizer'], function () {
 
     // Here your routes
 
