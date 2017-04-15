@@ -3,6 +3,7 @@
 <p align="center">
     <a href="https://styleci.io/repos/74991261"><img src="https://styleci.io/repos/74991261/shield?style=flat&branch=master" alt="StyleCI"></a>
     <a href="https://github.com/24aitor/Localizer/releases"><img src="https://poser.pugx.org/aitor24/localizer/v/stable.svg" alt="Version"></a>
+    <a href="https://scrutinizer-ci.com/g/24aitor/Localizer/?branch=master"><img src="https://scrutinizer-ci.com/g/24aitor/Localizer/badges/quality-score.png?b=master" alt="Scrutinizer"></a>
     <a href="https://raw.githubusercontent.com/24aitor/localizer/master/LICENSE"><img src="https://poser.pugx.org/aitor24/localizer/license.svg" alt="License"></a>
 </p>
 
