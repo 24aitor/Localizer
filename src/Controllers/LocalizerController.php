@@ -4,8 +4,8 @@ namespace Aitor24\Localizer\Controllers;
 
 use Aitor24\Localizer\Facades\LocalizerFacade as Localizer;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LocalizerController extends Controller
 {

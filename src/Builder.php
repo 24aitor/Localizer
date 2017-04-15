@@ -2,7 +2,6 @@
 
 namespace Aitor24\Localizer;
 
-use Aitor24\Linker\Facades\Linker as Linker;
 use Illuminate\Support\Facades\App;
 
 class Builder
