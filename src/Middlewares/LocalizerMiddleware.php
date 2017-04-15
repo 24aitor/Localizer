@@ -3,9 +3,9 @@
 namespace Aitor24\Localizer\Middlewares;
 
 use Aitor24\Localizer\Facades\LocalizerFacade as Localizer;
+use Closure;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
-use Closure;
 use Unicodeveloper\Identify\Facades\IdentityFacade as Identify;
 
 class LocalizerMiddleware
