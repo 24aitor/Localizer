@@ -2,9 +2,8 @@
 
 namespace Aitor24\Localizer;
 
-use Aitor24\Laralang\Facades\Laralang as Laralang;
 use Aitor24\Linker\Facades\Linker as Linker;
-use App;
+use Illuminate\Support\Facades\App;
 
 class Builder
 {
@@ -16,7 +15,7 @@ class Builder
     public static function allowedLanguages()
     {
         if (!config('localizer.allowed_langs')) {
-            return Laralang::allLanguages();
+            return ['en'];
         } else {
             return self::addNames(config('localizer.allowed_langs'));
         }
@@ -54,28 +53,6 @@ class Builder
     }
 
     /**
-     * Returns an html code to insert a flag into website. Must be called with {!! !!} statements.
-     *
-     * @param string $code
-     * @param string $size
-     *
-     * @return string
-     */
-    public static function getHtmlFlag($code, $size = '15px')
-    {
-        $flag = $code;
-        $array = ['en' => 'gb', 'zh' => 'cn', 'ja' => 'jp', 'ca' => 'img', 'eu' => 'img'];
-        if (array_key_exists($code, $array)) {
-            $flag = $array[$code];
-        }
-        if ($flag == 'img') {
-            return '<img src='.Linker::asset('vendor/Aitor24/Localizer/Flags/'.$code.'.jpg')." style='height:".$size.";' />";
-        }
-
-        return '<span class="flag-icon flag-icon-'.$flag.'" style="font-size:'.$size.';" ></span>';
-    }
-
-    /**
      * Returns an string url to set up language.
      *
      * @param string $code
@@ -84,19 +61,7 @@ class Builder
      */
     public static function setRoute($code)
     {
-        return Linker::route('localizer::setLocale', ['locale' => $code]);
-    }
-
-    /**
-     * Returns an html code to insert the current language flag into website. Must be called with {!! !!} statements.
-     *
-     * @param string $size
-     *
-     * @return string
-     */
-    public static function getCurrentHtmlFlag($size = '15px')
-    {
-        return self::getHtmlFlag(App::getLocale(), $size);
+        return route('localizer::setLocale', ['locale' => $code]);
     }
 
     /**
