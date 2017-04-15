@@ -30,7 +30,7 @@ Remind to add alias for use Laralang and Localizer functions
 
 ### Step 3. Publish vendor
 
-It will publish assets and config file.
+It will publish config file.
 
 Running the command below:
 
@@ -56,7 +56,7 @@ Default values can be modified also on `config/localizer.php`.
 
 ### Middleware
 
-Routes you want to auto set language should be under the below Route group
+All routes in which you want to set language should be under the localizer's middleware to set at each request de App locale.
 
 ```php
 Route::group(['middleware' => 'localizer'], function () {
@@ -68,9 +68,8 @@ Route::group(['middleware' => 'localizer'], function () {
 
 ### Changing languages
 
-- Acces to localhost/project_path/public/localizer and change your language with an interface
-
-- Via URL: localhost/project_path/public/localizer/set/{locale}
+- Via URL with return home: localhost/project_path/public/localizer/set/{locale}/home
+- Via URL with return back: localhost/project_path/public/localizer/set/{locale}
 
 ### Functions
 
@@ -82,21 +81,9 @@ Returns an array with [$code => $language] for all allowed languages of config.
 
 User for arrays with only codes and return an array as [$code => $language]
 
-#### Localizer::check_asset($asset)
-
-Returns an string url to an asset
-
-#### Localizer::getHtmlFlag($code)
-
-Returns an html code to insert a flag into website. Must be called with {!! !!} statements
-
 #### Localizer::setRoute()
 
 Returns an string url to set up language
-
-#### Localizer::getCurrentHtmlFlag()
-
-Returns an html code to insert the current language flag into website. Must be called with {!! !!} statements
 
 #### Localizer getCurrentCode()
 
@@ -105,10 +92,3 @@ Returns the current language code.
 #### Localizer::getCurrentLanguage()
 
 Returns the current language name.
-
-
-### Menu
-
-This is a preview of menu, but you can modify it on ``resources/view/vendor/Aitor24/Localizer``
-
-![Menu](http://i.imgur.com/taDghpt.png)
