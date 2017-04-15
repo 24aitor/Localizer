@@ -10,12 +10,10 @@ use Illuminate\Support\Facades\Auth;
 class LocalizerController extends Controller
 {
     /**
-	 *
      * Set locale if it's allowed.
      *
-     * @param string $locale
+     * @param string                   $locale
      * @param \Illuminate\Http\Request $request
-	 *
      **/
     private function setLocale($locale, $request)
     {
@@ -32,12 +30,10 @@ class LocalizerController extends Controller
     }
 
     /**
-	 *
      * Set locale and return home url.
      *
-     * @param string $locale
+     * @param string                   $locale
      * @param \Illuminate\Http\Request $request
-	 *
      **/
     public function setHome($locale, Request $request)
     {
@@ -47,12 +43,10 @@ class LocalizerController extends Controller
     }
 
     /**
-	 *
      * Set locale and return back.
      *
-     * @param string $locale
+     * @param string                   $locale
      * @param \Illuminate\Http\Request $request
-	 *
      **/
     public function set($locale, Request $request)
     {
