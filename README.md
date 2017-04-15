@@ -1,7 +1,11 @@
-# Localizer
+<h1 align="center">Localizer</h1>
 
-[![StyleCI](https://styleci.io/repos/74991261/shield?branch=master)](https://styleci.io/repos/74991261)
-[![GitHub license](https://img.shields.io/github/license/24aitor/localizer.svg?style=flat-square)](https://raw.githubusercontent.com/24aitor/localizer/master/LICENSE)
+<p align="center">
+    <a href="https://styleci.io/repos/74991261"><img src="https://styleci.io/repos/74991261/shield?style=flat&branch=master" alt="StyleCI"></a>
+    <a href="https://raw.githubusercontent.com/24aitor/localizer/master/LICENSE"><img src="https://poser.pugx.org/24aitor/localizer/license.svg" alt="License"></a>
+</p>
+
+
 
 ## Getting Started
 
