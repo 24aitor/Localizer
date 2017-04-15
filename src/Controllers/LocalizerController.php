@@ -9,6 +9,14 @@ use Illuminate\Support\Facades\Auth;
 
 class LocalizerController extends Controller
 {
+    /**
+	 *
+     * Set locale if it's allowed.
+     *
+     * @param string $locale
+     * @param \Illuminate\Http\Request $request
+	 *
+     **/
     private function setLocale($locale, $request)
     {
         if (!in_array($locale, array_keys(Localizer::allowedLanguages()))) {
@@ -23,6 +31,14 @@ class LocalizerController extends Controller
         }
     }
 
+    /**
+	 *
+     * Set locale and return home url.
+     *
+     * @param string $locale
+     * @param \Illuminate\Http\Request $request
+	 *
+     **/
     public function setHome($locale, Request $request)
     {
         $this->setLocale($locale, $request);
@@ -30,15 +46,18 @@ class LocalizerController extends Controller
         return redirect(url('/'));
     }
 
+    /**
+	 *
+     * Set locale and return back.
+     *
+     * @param string $locale
+     * @param \Illuminate\Http\Request $request
+	 *
+     **/
     public function set($locale, Request $request)
     {
         $this->setLocale($locale, $request);
 
         return redirect()->back();
-    }
-
-    public function view()
-    {
-        return view('localizer::localizer');
     }
 }
