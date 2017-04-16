@@ -20,7 +20,7 @@ class LocalizerServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/Config/localizer.php' => config_path('localizer.php'),
-        ], 'localizer_pkg');
+        ], 'localizer_config');
 
         $router->aliasMiddleware('localizer', config('localizer.middleware'));
         $this->app->register(IdentifyServiceProvider::class);
@@ -35,6 +35,6 @@ class LocalizerServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->mergeConfigFrom(__DIR__.'/Config/localizer.php', 'localizer');
     }
 }

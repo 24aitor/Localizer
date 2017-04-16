@@ -1,6 +1,6 @@
 <?php
 
-if (config('localizer.routes')) {
+if (config('localizer.route')) {
     Route::group([
         'middleware' => ['web', 'localizer'],
         'as'         => 'localizer::',
@@ -8,6 +8,8 @@ if (config('localizer.routes')) {
         'namespace'  => 'Aitor24\Localizer\Controllers',
     ], function () {
         Route::get('/set/{locale}/', 'LocalizerController@set')->name('setLocale');
-        Route::get('/set/{locale}/home', 'LocalizerController@setHome')->name('setLocaleHome');
+        if (config('localizer.homeRoute')) {
+            Route::get('/set/{locale}/home', 'LocalizerController@setHome')->name('setLocaleHome');
+        }
     });
 }
