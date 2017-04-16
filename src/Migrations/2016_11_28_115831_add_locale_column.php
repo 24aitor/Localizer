@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Schema;
 
 class AddLocaleColumn extends Migration
 {
