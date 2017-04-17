@@ -82,12 +82,22 @@ class Builder
     /**
      * Returns  the current language name.
      *
-     * @param string $ucfirst
-     *
      * @return string
      */
     public static function getCurrentLanguage()
     {
         return self::addNames([self::getCurrentCode()])[self::getCurrentCode()];
+    }
+
+    /**
+     * Returns the language name.
+     *
+     * @param string $code
+     *
+     * @return string
+     */
+    public static function getLanguage($code)
+    {
+        return self::addNames([$code])[$code];
     }
 }
