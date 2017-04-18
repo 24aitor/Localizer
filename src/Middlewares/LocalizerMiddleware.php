@@ -26,14 +26,11 @@ class LocalizerMiddleware
     }
 
     /**
-     * Handle an incoming request.
+     * This function checks if user is logged in, and loads the prefered language.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \Closure                 $next
-     *
-     * @return mixed
-     */
-    public function handle($request, Closure $next)
+     * @param string $lang
+     **/
+    public function setLang()
     {
         if (Auth::check()) {
             $user = Auth::user();
@@ -59,6 +56,19 @@ class LocalizerMiddleware
                 }
             }
         }
+    }
+
+    /**
+     * Handle an incoming request.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure                 $next
+     *
+     * @return mixed
+     */
+    public function handle($request, Closure $next)
+    {
+        $this->setLang();
 
         return $next($request);
     }
