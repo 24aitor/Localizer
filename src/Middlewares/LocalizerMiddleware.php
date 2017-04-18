@@ -30,7 +30,7 @@ class LocalizerMiddleware
      *
      * @param string $lang
      **/
-    public function setLang()
+    public function setLang($request)
     {
         if (Auth::check()) {
             $user = Auth::user();
@@ -68,7 +68,7 @@ class LocalizerMiddleware
      */
     public function handle($request, Closure $next)
     {
-        $this->setLang();
+        $this->setLang($request);
 
         return $next($request);
     }
