@@ -21,7 +21,7 @@ class LocalizerMiddleware
         if (in_array($lang, $allowedLangs)) {
             App::setLocale($lang);
         } else {
-            App::setLocale('en');
+            App::setLocale($allowedLangs[0]);
         }
     }
 

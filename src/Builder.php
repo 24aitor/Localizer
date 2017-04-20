@@ -13,10 +13,10 @@ class Builder
      */
     public static function allowedLanguages()
     {
-        if (!config('localizer.allowed_langs')) {
-            return ['en'];
-        } else {
+        if (config('localizer.allowed_langs')) {
             return self::addNames(config('localizer.allowed_langs'));
+        } else {
+            return self::addNames([config('localizer.default_lang')]);
         }
     }
 

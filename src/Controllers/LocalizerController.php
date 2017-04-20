@@ -18,7 +18,7 @@ class LocalizerController extends Controller
     private function setLocale($locale, $request)
     {
         if (!in_array($locale, array_keys(Localizer::allowedLanguages()))) {
-            abort(404, "Lang '".$locale."' not found");
+            abort(404, "Unallowed language");
         }
         if (Auth::check()) {
             $user = Auth::User();
