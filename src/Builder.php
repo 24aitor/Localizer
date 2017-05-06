@@ -76,39 +76,11 @@ class Builder
     }
 
     /**
-     * Returns  the current language code.
-     *
-     * @param string $ucfirst
-     *
-     * @return string
-     */
-    public static function getCurrentCode($ucfirst = false)
-    {
-        if ($ucfirst) {
-            return ucfirst(App::getLocale());
-        }
-
-        return App::getLocale();
-    }
-
-    /**
      * Returns  the current language name.
      *
      * @return string
      */
-    public static function getCurrentLanguage()
-    {
-        return self::addNames([self::getCurrentCode()])[self::getCurrentCode()];
-    }
-
-    /**
-     * Returns the language name.
-     *
-     * @param string $code
-     *
-     * @return string
-     */
-    public static function getLanguage($code)
+    public static function getLanguage($code = App::getLocale())
     {
         return self::addNames([$code])[$code];
     }
