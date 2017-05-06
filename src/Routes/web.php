@@ -1,6 +1,6 @@
 <?php
 
-if (config('localizer.route')) {
+if (config('localizer.routes')) {
     Route::group([
         'middleware' => ['web', 'localizer'],
         'as'         => 'localizer::',
