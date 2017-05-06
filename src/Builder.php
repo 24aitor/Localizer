@@ -27,7 +27,7 @@ class Builder
      **/
     public static function isAllowedLanguage($code)
     {
-        return in_array($code, array_keys(self::allowedLanguages()) );
+        return in_array($code, array_keys(self::allowedLanguages()));
     }
 
     /**
@@ -117,7 +117,9 @@ class Builder
      **/
     public static function getCode($name = 'default')
     {
-        if ($name == 'default') $name = self::getLanguage();
+        if ($name == 'default') {
+            $name = self::getLanguage();
+        }
 
         return self::addCodes([$name])[$name];
     }
@@ -129,7 +131,10 @@ class Builder
      **/
     public static function getLanguage($code = 'default')
     {
-        if ($code == 'default') $code = App::getLocale();
+        if ($code == 'default') {
+            $code = App::getLocale();
+        }
+
         return self::addNames([$code])[$code];
     }
 }
