@@ -22,16 +22,15 @@ composer require aitor24/localizer
 
 ### 2. Register service provider
 
-Include the line below to config/app.php inside array `'providers' => [` :
+Register the localizer service provider on ``config/app.php``.
 
 ```php
 Aitor24\Localizer\LocalizerServiceProvider::class,
 ```
 
-Remind to add alias for use Laralang and Localizer functions
+Remind to add alias to use Localizer functions comfortably.
 
 ```php
-'Laralang'   => Aitor24\Laralang\Facades\Laralang::class,
 'Localizer'   => Aitor24\Localizer\Facades\LocalizerFacade::class,
 ```
 
