@@ -6,7 +6,7 @@ return [
     | Default settings for localizer
     |--------------------------------------------------------------------------
     */
-    'route'              => true,
+    'routes'             => true,
     'homeRoute'          => false,
     'set_auto_lang'      => true,
     'default_lang'       => 'en', // If set_auto_lang is true has no effect
