@@ -14,10 +14,20 @@ class Builder
     public static function allowedLanguages()
     {
         if (config('localizer.allowed_langs')) {
-            return self::addNames(config('localizer.allowed_langs'));
+            return self::addNames(array_merge(config('localizer.allowed_langs'), [config('localizer.default_lang')]));
         } else {
             return self::addNames([config('localizer.default_lang')]);
         }
+    }
+
+    /**
+     * Return true if $code is an allowed lang.
+     *
+     * @return bool
+     **/
+    public static function isAllowedLanguage($code)
+    {
+        return in_array($code, array_keys(self::allowedLanguages()) );
     }
 
     /**
@@ -105,8 +115,10 @@ class Builder
      *
      * @return string
      **/
-    public static function getCode($name = self::getLanguage())
+    public static function getCode($name = 'default')
     {
+        if ($name == 'default') $name = self::getLanguage();
+
         return self::addCodes([$name])[$name];
     }
 
@@ -115,8 +127,9 @@ class Builder
      *
      * @return string
      **/
-    public static function getLanguage($code = App::getLocale())
+    public static function getLanguage($code = 'default')
     {
+        if ($code == 'default') $code = App::getLocale();
         return self::addNames([$code])[$code];
     }
 }
