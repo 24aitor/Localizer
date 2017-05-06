@@ -6,6 +6,7 @@ use Aitor24\Localizer\Facades\LocalizerFacade as Localizer;
 use Closure;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 use Unicodeveloper\Identify\Facades\IdentityFacade as Identify;
 
 class LocalizerMiddleware
@@ -18,10 +19,13 @@ class LocalizerMiddleware
     private function setIfAllowed($lang)
     {
         $allowedLangs = array_keys(Localizer::allowedLanguages());
-        if (in_array($lang, $allowedLangs)) {
-            App::setLocale($lang);
-        } else {
-            App::setLocale($allowedLangs[0]);
+        if (!in_array($lang, $allowedLangs)) {
+            $lang = $allowedLangs[0];
+        }
+
+        App::setLocale($lang);
+        if (config('localizer.carbon')) {
+            Carbon::setLocale($lang);
         }
     }
 
