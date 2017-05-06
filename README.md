@@ -133,6 +133,6 @@ Following there are a little code snippet of a view to select and set languages
 
 ```php
 @foreach (Localizer::allowedLanguages() as $code => $value)
-        <a href="{{ Localizer::setRouteHome('localizer') }}">{{ $value }}</a>
+        <a href="{{ Localizer::setRouteHome($code) }}">{{ $value }}</a>
 @endforeach
 ```
