@@ -3,10 +3,10 @@
 namespace Aitor24\Localizer\Middlewares;
 
 use Aitor24\Localizer\Facades\LocalizerFacade as Localizer;
+use Carbon\Carbon;
 use Closure;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
-use Carbon\Carbon;
 use Unicodeveloper\Identify\Facades\IdentityFacade as Identify;
 
 class LocalizerMiddleware
