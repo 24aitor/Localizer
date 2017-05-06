@@ -4,6 +4,7 @@
     <a href="https://styleci.io/repos/74991261"><img src="https://styleci.io/repos/74991261/shield?style=flat&branch=master" alt="StyleCI"></a>
     <a href="https://github.com/24aitor/Localizer/releases"><img src="https://poser.pugx.org/aitor24/localizer/v/stable.svg" alt="Version"></a>
     <a href="https://scrutinizer-ci.com/g/24aitor/Localizer/?branch=master"><img src="https://scrutinizer-ci.com/g/24aitor/Localizer/badges/quality-score.png?b=master" alt="Scrutinizer"></a>
+    <a href="https://github.com/24aitor/Localizer"><img src="https://poser.pugx.org/aitor24/localizer/d/total.svg" alt="Downloads"></a>
     <a href="https://raw.githubusercontent.com/24aitor/localizer/master/LICENSE"><img src="https://poser.pugx.org/aitor24/localizer/license.svg" alt="License"></a>
 </p>
 
@@ -11,7 +12,7 @@
 
 ## Getting Started
 
-### Step 1. Install it with composer
+### 1. Install it with composer
 
 Running the command below:
 
@@ -19,7 +20,7 @@ Running the command below:
 composer require aitor24/localizer
 ```
 
-### Step 2. Register service provider
+### 2. Register service provider
 
 Include the line below to config/app.php inside array `'providers' => [` :
 
@@ -34,7 +35,7 @@ Remind to add alias for use Laralang and Localizer functions
 'Localizer'   => Aitor24\Localizer\Facades\LocalizerFacade::class,
 ```
 
-### Step 3. Publish vendor
+### 3. Publish vendor
 
 It will publish config file.
 
@@ -44,7 +45,7 @@ Running the command below:
 php artisan vendor:publish
 ```
 
-### Step 4. Migrate
+### 4. Migrate
 
 
 Running the command below:
@@ -54,7 +55,7 @@ php artisan migrate
 ```
 
 
-### Step 5. Configure defalt values
+### 5. Configure defalt values
 
 Default values can be modified also on `config/localizer.php`.
 
@@ -62,7 +63,8 @@ Default values can be modified also on `config/localizer.php`.
 
 ### Middleware
 
-All routes in which you want to set language should be under the localizer's middleware to set at each request de App locale.
+All routes in which you want to set language should be under the localizer's
+middleware to set at each request de App locale.
 
 ```php
 Route::group(['middleware' => 'localizer'], function () {
@@ -77,24 +79,60 @@ Route::group(['middleware' => 'localizer'], function () {
 - Via URL with return home: localhost/project_path/public/localizer/set/{locale}/home
 - Via URL with return back: localhost/project_path/public/localizer/set/{locale}
 
-### Functions
+## API
 
-#### Localizer::allowedLanguages()
+### Localizer::allowedLanguages()
 
 Returns an array with [$code => $language] for all allowed languages of config.
 
-#### Localizer::addNames()
+### Localizer::addNames()
 
 User for arrays with only codes and return an array as [$code => $language]
 
-#### Localizer::setRoute()
+### Localizer::setRoute($code)
 
-Returns an string url to set up language
+*Used for modals or dropdowns*
 
-#### Localizer getCurrentCode()
+Returns the url to set up language and return back.
+
+Also if you prefer to use directly route() function you can use it as following
+code:
+
+```php
+{{ route('localizer::setLocale', ['locale' => $code]) }}
+```
+
+### Localizer::setRouteHome($code)
+
+*Used for language selection views*
+
+Returns the url to set language and return '/' *url('/')*
+
+Also if you prefer to use directly route() function you can use it as following
+code:
+
+```php
+{{ route('localizer::setLocaleHome', ['locale' => $code]) }}
+```
+
+### Localizer::getCurrentCode()
 
 Returns the current language code.
 
-#### Localizer::getCurrentLanguage()
+### Localizer::getCurrentLanguage()
 
 Returns the current language name.
+
+### Localizer::getCurrentLanguage($code)
+
+Returns the language name of $code.
+
+## Example languages view
+
+Following there are a little code snippet of a view to select and set languages
+
+```php
+@foreach (Localizer::allowedLanguages() as $code => $value)
+        <a href="{{ Localizer::setRouteHome('localizer') }}">{{ $value }}</a>
+@endforeach
+```

@@ -52,7 +52,7 @@ class Builder
     }
 
     /**
-     * Returns an string url to set up language.
+     * Returns the url to set up language and return back.
      *
      * @param string $code
      *
@@ -61,6 +61,18 @@ class Builder
     public static function setRoute($code)
     {
         return route('localizer::setLocale', ['locale' => $code]);
+    }
+
+    /**
+     * Returns the url to set up language and return to url('/').
+     *
+     * @param string $code
+     *
+     * @return string
+     */
+    public static function setRouteHome($code)
+    {
+        return route('localizer::setLocaleHome', ['locale' => $code]);
     }
 
     /**
