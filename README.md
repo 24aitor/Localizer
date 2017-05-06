@@ -59,6 +59,17 @@ php artisan migrate
 
 Default values can be modified also on `config/localizer.php`.
 
+#### Keys
+
+- routes: Makes routes available.
+- carbon: Sets carbon translator language.
+- homeRoute: Make home route available.
+- set_auto_lang: Sets language automatically depending on user's browser config
+- default_lang: Default language if set_auto_lang is false or user is attempting to set an unallowed language
+- prefix: Prefix of routes URI to set locale,
+- allowed_langs: All allowed languages,
+- middleware: default middleware to set locale,
+
 ## Using Localizer
 
 ### Middleware
@@ -76,8 +87,10 @@ Route::group(['middleware' => 'localizer'], function () {
 
 ### Changing languages
 
-- Via URL with return home: localhost/project_path/public/localizer/set/{locale}/home
-- Via URL with return back: localhost/project_path/public/localizer/set/{locale}
+- Via URL with return home: /lang/set/{locale}/home
+- Via URL with return back: /lang/set/{locale}
+
+**Tip:** */lang prefix will be changed on config*
 
 ## Example languages view
 
@@ -97,10 +110,14 @@ set languages:
 Returns an array with [$code => $language] for all allowed
 languages of config.
 
-### Localizer::addNames()
+### Localizer::addNames($codes)
 
-User for arrays with only codes and return an array as
-[$code => $language]
+Get an array like [$code => $language] from an array of only $codes.
+
+
+### Localizer::addCodes($lang)
+
+Get an array like [$language => $code] from an array of only $langs.
 
 ### Localizer::setRoute($code)
 
