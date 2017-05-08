@@ -9,6 +9,18 @@
 </p>
 
 
+## What is Localizer?
+
+Localizer is a laravel package to change easily locale on laravel projects.
+
+It's so simple to use, once it's installed, your App locale will change only by passing routes into localizer middleare.
+
+**Top features:**
+
+- Change automatically app locale depending on user browser configuration
+- Get language like 'Spanish' or 'English' from codes such as 'es' or 'en'.
+- Store on users database table the user locale preference
+- Restrict users to set languages you don't have translations
 
 ## Getting Started
 
