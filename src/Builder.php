@@ -39,19 +39,21 @@ class Builder
      **/
     public static function addNames($codes)
     {
-        // Read and decode JSON
-        $json_data = json_decode(file_get_contents(__DIR__.'/languages.json'), true);
+        // Get languages from config
+        $languages = config('localizer.languages');
 
         $array = [];
 
         // Generate an array with $code as key and $code language as value
         foreach ($codes as $code) {
-            $lang_name = 'Unknoun';
-            foreach ($json_data as $lang_data) {
-                if ($lang_data['code'] == $code) {
-                    $lang_name = $lang_data['name'];
+            $lang_name = 'Unknown';
+
+            foreach ($languages as $language) {
+                if ($language['code'] == $code) {
+                    $lang_name = $language['name'];
                 }
             }
+
             $array[$code] = $lang_name;
         }
 
@@ -67,20 +69,22 @@ class Builder
      **/
     public static function addCodes($langs)
     {
-        // Read and decode JSON
-        $json_data = json_decode(file_get_contents(__DIR__.'/languages.json'), true);
+        // Get languages from config
+        $languages = config('localizer.languages');
 
         $array = [];
 
         // Generate an array with $lang as key and $lang code as value
         foreach ($langs as $lang) {
-            $code = 'unk';
-            foreach ($json_data as $lang_data) {
-                if ($lang_data['name'] == $lang) {
-                    $code = $lang_data['code'];
+            $lang_code = 'unk';
+
+            foreach ($languages as $language) {
+                if ($language['name'] == $lang) {
+                    $lang_code = $language['code'];
                 }
             }
-            $array[$lang] = $code;
+
+            $array[$lang] = $lang_code;
         }
 
         return $array;
