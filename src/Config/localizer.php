@@ -23,7 +23,6 @@ return [
     */
     'homeRoute'     => true,
 
-
     /*
     |--------------------------------------------------------------------------
     | Carbon Language
@@ -74,7 +73,6 @@ return [
     |
     */
     'middleware'    => Aitor24\Localizer\Middlewares\LocalizerMiddleware::class,
-
 
     /*
     |--------------------------------------------------------------------------
