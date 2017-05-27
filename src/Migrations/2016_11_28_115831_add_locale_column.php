@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Schema;
 
 class AddLocaleColumn extends Migration
@@ -14,7 +13,7 @@ class AddLocaleColumn extends Migration
     public function up()
     {
         Schema::table('users', function ($table) {
-            $table->string('locale')->default(App::getLocale());
+            $table->string('locale')->default(config('localizer.default_lang'));
         });
     }
 

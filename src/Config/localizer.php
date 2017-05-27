@@ -86,7 +86,7 @@ return [
     |
     */
 
-    'block_unallowed' => false
+    'block_unallowed_langs' => false,
 
     'allowed_langs' => ['en', 'ca', 'es', 'fr', 'de', 'it'],
 ];

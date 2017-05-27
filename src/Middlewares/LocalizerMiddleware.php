@@ -19,7 +19,7 @@ class LocalizerMiddleware
     private function setIfAllowed($lang)
     {
         $allowedLangs = array_keys(Localizer::allowedLanguages());
-        if (!in_array($lang, $allowedLangs)) {
+        if (config('localizer.block_unallowed_langs') && !in_array($lang, $allowedLangs)) {
             $lang = $allowedLangs[0];
         }
 
