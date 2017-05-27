@@ -6,8 +6,10 @@ return [
     |--------------------------------------------------------------------------
     | Localizer Languages
     |--------------------------------------------------------------------------
+    |
+    | This option indicates the languages codes and names.
+    |
     */
-
     'languages' => [
         ['code' => 'aa', 'name' => 'Afar'],
         ['code' => 'ab', 'name' => 'Abkhazian'],
