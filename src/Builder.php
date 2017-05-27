@@ -40,7 +40,7 @@ class Builder
     public static function addNames($codes)
     {
         // Get languages from config
-        $languages = config('localizer.languages');
+        $languages = config('localizer_languages.languages');
 
         $array = [];
 
@@ -70,7 +70,7 @@ class Builder
     public static function addCodes($langs)
     {
         // Get languages from config
-        $languages = config('localizer.languages');
+        $languages = config('localizer_languages.languages');
 
         $array = [];
 

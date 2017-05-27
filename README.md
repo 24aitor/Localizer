@@ -46,14 +46,23 @@ Remind to add alias to use Localizer functions comfortably.
 'Localizer'   => Aitor24\Localizer\Facades\LocalizerFacade::class,
 ```
 
-### 3. Publish vendor
+### 3. Publish config
 
 It will publish config file.
 
 Running the command below:
 
 ```
-php artisan vendor:publish
+php artisan vendor:publish --tag=localizer_config
+```
+
+
+#### 3.1 Publish languages
+
+Also you can publish your languages to modify or add.
+
+```
+php artisan vendor:publish --tag=localizer_languages
 ```
 
 ### 4. Migrate
