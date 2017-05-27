@@ -7,7 +7,7 @@ return [
     | Localizer Languages
     |--------------------------------------------------------------------------
     */
-   
+
     'languages' => [
         ['code' => 'aa', 'name' => 'Afar'],
         ['code' => 'ab', 'name' => 'Abkhazian'],
@@ -198,4 +198,4 @@ return [
         ['code' => 'zh', 'name' => 'Chinese'],
         ['code' => 'zu', 'name' => 'Zulu'],
     ],
-]
+];
