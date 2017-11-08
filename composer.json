@@ -20,5 +20,15 @@
 		"psr-4": {
 			"Aitor24\\Localizer\\": "./src"
 		}
+	},
+	"extra": {
+		"laravel": {
+			"providers": [
+				"Aitor24\\Localizer\\LocalizerServiceProvider"
+			],
+			"aliases": {
+				"Localizer": "Aitor24\\Localizer\\Facades\\LocalizerFacade"
+            }
+		}
 	}
 }
