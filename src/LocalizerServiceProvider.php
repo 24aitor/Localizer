@@ -29,7 +29,7 @@ class LocalizerServiceProvider extends ServiceProvider
         $router->aliasMiddleware('localizer', config('localizer.middleware'));
         $this->app->register(IdentifyServiceProvider::class);
 
-        if (! class_exists('AddLocaleColumn')) {
+        if (!class_exists('AddLocaleColumn')) {
             // Publish the migration
             $timestamp = date('Y_m_d_His', time());
             $this->publishes([
