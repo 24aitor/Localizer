@@ -10,7 +10,7 @@ return [
     | This option enable localizer routes.
     |
     */
-    'routes'        => true,
+    'routes' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -21,7 +21,7 @@ return [
     | to url('/')
     |
     */
-    'homeRoute'     => true,
+    'homeRoute' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -31,7 +31,7 @@ return [
     | This option sets carbon language.
     |
     */
-    'carbon'        => true,
+    'carbon' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
     | This option indicates the default language.
     |
     */
-    'default_lang'  => 'en',
+    'default_lang' => 'en',
 
     /*
     |--------------------------------------------------------------------------
@@ -62,7 +62,7 @@ return [
     | This option indicates the prefix for localizer routes.
     |
     */
-    'prefix'        => 'lang',
+    'prefix' => 'lang',
 
     /*
     |--------------------------------------------------------------------------
@@ -72,7 +72,7 @@ return [
     | This option indicates the middleware to change language.
     |
     */
-    'middleware'    => Aitor24\Localizer\Middlewares\LocalizerMiddleware::class,
+    'middleware' => Aitor24\Localizer\Middlewares\LocalizerMiddleware::class,
 
     /*
     |--------------------------------------------------------------------------
