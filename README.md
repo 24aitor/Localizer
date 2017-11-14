@@ -69,6 +69,10 @@ php artisan vendor:publish --tag=localizer_languages
 
 ### 4. Migrate
 
+Publish migrations:
+```
+php artisan vendor:publish --tag=localizer_migrations
+```
 
 Running the command below:
 
