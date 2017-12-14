@@ -29,11 +29,11 @@ class LocalizerServiceProvider extends ServiceProvider
         $router->aliasMiddleware('localizer', config('localizer.middleware'));
         $this->app->register(IdentifyServiceProvider::class);
 
-        if (!class_exists('AddLocaleColumn')) {
-            // Publish the migration
-            $timestamp = date('Y_m_d_His', time());
+        if (! class_exists('AddLocaleColumn')) {
+            $this->loadMigrationsFrom(__DIR__.'/Migrations', 'localizer');
+            
             $this->publishes([
-                __DIR__.'/Migrations/add_locale_column.php.stub' => $this->app->databasePath().'/migrations/'.$timestamp.'_add_locale_column.php',
+                __DIR__.'/Migrations/2016_11_28_115831_add_locale_column.php' => $this->app->databasePath().'/migrations/'.date('Y_m_d_His', time()).'_add_locale_column.php',
             ], 'localizer_migrations');
         }
     }
