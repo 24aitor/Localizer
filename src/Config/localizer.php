@@ -54,7 +54,7 @@ return [
     |
     */
     'dynamic_migration_name' => false,
-    
+
     /*
     |--------------------------------------------------------------------------
     | Default Language
