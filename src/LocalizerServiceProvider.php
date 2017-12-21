@@ -32,8 +32,8 @@ class LocalizerServiceProvider extends ServiceProvider
         $this->publishes([
                 __DIR__.'/Migrations/2016_11_28_115831_add_locale_column.php' => $this->app->databasePath().'/migrations/'.date('Y_m_d_His', time()).'_add_locale_column.php',
         ], 'localizer_migrations');
-        
-        if (!config('localizer.dynamic_migration_name')) {            
+
+        if (!config('localizer.dynamic_migration_name')) {
             $this->loadMigrationsFrom(__DIR__.'/Migrations', 'localizer');
         }
     }
